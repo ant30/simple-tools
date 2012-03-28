@@ -1,0 +1,7 @@
+#!/bin/bash
+echo "Cleaning pyc and *~ files"
+date
+
+find -iname "*pyc" -exec rm -v {} \;
+find -iname "*~" -exec rm -v {} \;
+

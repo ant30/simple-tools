@@ -1,0 +1,19 @@
+#!/bin/sh
+
+
+sound () {
+   for item in `seq 1 10`
+   do
+       beep
+       sleep 0.5
+   done
+}
+
+notify-send --icon gnome-terminal -u critical "SCRIPT FINISHED" \
+"The script was launched at ${PWD}:
+    ${PWD}
+    $@" --expire-time 15000
+
+if echo $@ | grep "-b" &> /dev/null ; then
+    sound
+fi

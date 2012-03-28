@@ -1,0 +1,11 @@
+#!/bin/bash
+
+which socat > /dev/null || (echo "socat is required" ; exit 1)
+
+if [ "$#" != "2" ]; then
+   echo "Usage: $0 remote_host:remote_port local_port"
+   exit 1
+else
+   socat -v TCP-LISTEN:$2,fork,reuseaddr TCP:$1 2>&1
+fi
+

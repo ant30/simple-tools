@@ -24,7 +24,7 @@ share_this
     $ share_this file.pdf
     http://yourhostname:8000/file.pdf
     xclip command isn't found, can't copy uri to clipboard
-    Ctrl + C stop the serve
+    Ctrl + C stop the server
 
 alert-when-finish
     Show a inotify alert when is called. If you have beep instaled

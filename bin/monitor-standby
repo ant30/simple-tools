@@ -1,0 +1,7 @@
+#!/bin/sh
+
+gnome-screensaver-command --lock
+sleep 4
+xset dpms force standby
+#xset dpms force standby
+ 

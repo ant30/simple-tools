@@ -1,0 +1,4 @@
+#!/bin/bash -x
+xinput create-master New
+xinput reattach 25 17
+

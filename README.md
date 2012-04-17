@@ -53,4 +53,13 @@ debug http Dovecot <-> Solr communication.
     $ socat-tcp-proxy-sniffer 192.168.122.101:8000 8000
 
 ## enable-mpx
-Add another mouse for "multitouch" simulation
+Add another mouse for "multitouch" simulation (you must modify this)
+
+## flush linux system cache
+Clean linux system cache (pagecache, dentries and inodes)
+
+### Example:
+
+    $ flush-system-cache
+
+

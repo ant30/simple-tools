@@ -19,4 +19,4 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
 
 
-arp -n | grep $(virsh dumpxml $1 | grep mac\ address | cut -d \' -f 2 ) | cut -d \  -f 1
+cat /var/lib/libvirt/dnsmasq/default.leases | grep $(virsh dumpxml $1 | grep mac\ address | cut -d \' -f 2 ) | cut -d \   -f 3

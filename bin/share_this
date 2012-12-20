@@ -2,7 +2,6 @@
 
 import SimpleHTTPServer
 import SocketServer
-import os
 import sys
 import socket
 from subprocess import Popen, PIPE
@@ -11,11 +10,11 @@ INIT_PORT = 8000
 
 
 def get_valid_host():
-    socket.gethostname()
-    (host, hosts, ip) = socket.gethostbyaddr(socket.gethostname())
-    if host.startswith('localhost'):
-        return ip
-    return host
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    s.connect(('8.8.8.8', 80))
+    ip = (s.getsockname()[0])
+    s.close()
+    return ip
 
 
 def send_to_clipboard(text):
@@ -49,7 +48,7 @@ while True:
 if len(sys.argv) > 1:
     uri = "http://%s:%s/%s" % (host, PORT, sys.argv[1])
 else:
-    uri = "http://%s:/%s/" % (host, PORT)
+    uri = "http://%s:%s/" % (host, PORT)
 
 print uri
 send_to_clipboard(uri)

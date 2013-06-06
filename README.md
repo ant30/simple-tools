@@ -25,7 +25,7 @@ set  it on your "clipboard" if you have installed xclip on your system.
     Ctrl + C stop the server
 
 ## alert-when-finish
-Show a inotify alert when is called. If you have beep instaled it can make 
+Show a inotify alert when is called. If you have beep instaled it can make
 beeps sounds too.
 
 ### Example:
@@ -62,4 +62,20 @@ Clean linux system cache (pagecache, dentries and inodes)
 
     $ flush-system-cache
 
+# Email Utils
 
+## Fake email Server
+This script start a foreground smtp python email emulator which print to the
+stdout the emails received.  Sudo command is required.
+
+### Example:
+
+    $ fake-mail-server
+
+
+## Test smtp server
+This script send a test email using one smtp server given
+
+### Example:
+
+    $ testmail.py localhost from@example.com to@example.com

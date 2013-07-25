@@ -19,4 +19,11 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
 
 
-cat /var/lib/libvirt/dnsmasq/default.leases | grep $(virsh dumpxml $1 | grep mac\ address | cut -d \' -f 2 ) | cut -d \   -f 3
+if [[ "$UID" != "0" ]]; then
+    sudo $0 $@
+    exit $?
+fi
+
+NET_NAME=$(virsh dumpxml $1 | grep network= | cut -d \' -f 2)
+
+cat /var/lib/libvirt/dnsmasq/$NET_NAME.leases | grep $(virsh dumpxml $1 | grep mac\ address | cut -d \' -f 2 ) | cut -d \   -f 3
